@@ -1,0 +1,91 @@
+  #include <Servo.h>
+int sleft=12;
+int scent=8; 
+int srigh=7;
+int fanp = 5;
+
+int ldeg = 35;
+int cdeg = 90;
+int rdeg = 135;
+Servo motor;
+
+void setup() {
+  Serial.begin(9600);
+  motor.attach(9);   
+  pinMode(sleft,INPUT);
+  pinMode(scent,INPUT);
+  pinMode(srigh,INPUT);
+  pinMode(fanp, OUTPUT);
+//  digitalWrite(fanp, HIGH);
+}
+
+void swing(int a,int b){
+  int pos;
+           for (pos = a; pos <= b; pos += 1) { // goes from 0 degrees to 180 degrees
+            // in steps of 1 degree
+            motor.write(pos);              // tell servo to go to position in variable 'pos'
+            delay(15);                       // waits 15ms for the servo to reach the position
+          }
+          for (pos = b; pos >= a; pos -= 1) { // goes from 180 degrees to 0 degrees
+            motor.write(pos);              // tell servo to go to position in variable 'pos'
+            delay(15);                       // waits 15ms for the servo to reach the position
+          }
+  }
+
+void loop() 
+{
+//
+//  Serial.println(digitalRead(sleft));
+// Serial.println(digitalRead(scent));
+// Serial.println(digitalRead(srigh));
+// Serial.println("Read");
+
+  
+  if(digitalRead(sleft) == HIGH and digitalRead(scent) == HIGH and digitalRead(srigh) == HIGH){
+     delay(100);
+    }
+
+  if(digitalRead(sleft) == LOW and digitalRead(scent) == HIGH and digitalRead(srigh) == HIGH){
+      motor.write(ldeg);
+      delay(100); Serial.println("Excecuted LLH");
+      
+    }
+  if(digitalRead(scent) == LOW and digitalRead(sleft) == HIGH and digitalRead(srigh) == HIGH){
+      
+      motor.write(cdeg);
+      delay(100); Serial.println("Excecuted HLH");
+    }
+  if(digitalRead(srigh) == LOW and digitalRead(scent) == HIGH and digitalRead(sleft) == HIGH){
+      
+      motor.write(rdeg);
+      delay(100); Serial.println("Excecuted HHL");
+    }
+
+
+  if(digitalRead(sleft) == LOW and digitalRead(scent) == LOW and digitalRead(srigh) == HIGH){
+     
+     swing(ldeg,cdeg);
+      delay(100); Serial.println("Excecuted LLH");
+    }
+  if(digitalRead(srigh) == LOW and digitalRead(scent) == LOW and digitalRead(sleft) == HIGH){
+     
+     swing(cdeg,rdeg);
+      delay(100); Serial.println("Excecuted HLL");
+    }
+  if(digitalRead(sleft) == LOW and digitalRead(srigh) == LOW and digitalRead(scent) == HIGH){
+     
+     swing(ldeg,rdeg);
+      delay(100); Serial.println("Excecuted LHL");
+    }
+
+
+    if(digitalRead(sleft) == LOW and digitalRead(scent) == LOW and digitalRead(srigh) == LOW){
+     
+     swing(ldeg,rdeg);
+      delay(100); Serial.println("Excecuted LLL");
+    }
+       
+
+}
+
+   
