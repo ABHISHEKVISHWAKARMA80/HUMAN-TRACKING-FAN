@@ -1,0 +1,38 @@
+1. Introduction
+	Unfortunately, today fans do not have very efficient or useful features when it is desirable to change the direction of air flow.
+
+	Fans usually is static and needs to be physically redirected to direct air in the desired direction It requires physical effort which may be difficult if the user is of elderly age.
+
+
+	The fan can rotate back and forth at a set angle which is approximately 180 degrees. This option is wasteful as the fan may direct air at empty spaces for much of the rotation cycle.
+
+Thus, we decided to focus on a project that could solve the daily stresses and inconveniences of fan use by automating the process.
+
+Need of Project 
+
+	Our project will be useful in offices, hostels, railway stations, hospitals.
+
+2. Project Idea
+
+      Origin:
+
+	We live in a society where fans are very prevalent whether it is an office, a hospital, a railway station or a bus stand. 
+	But fans usually provide air in the places where the person is not sitting which causes wastage of energy which is not good. 
+	It also requires multiple attempts to put the fan in the right position. It also causes in comfortability to elderly and differently abled people.
+	 So, we decided to pursue this project because we had fed up with these limitations of fan. 
+
+Explanation:
+	When a person is in the field of view of sensor the output will be transferred to the Arduino board.
+	Then Arduino will process the output and it will turn the attached servo motor to that position and will make the fan on.
+	When another sensor detects the person the same process will be repeated.
+	If there are two persons in the sensors field of view the fan will rotate in between the two persons.
+	And if there is no person in the field of view of the sensor the fan will be stopped at an angle of 90 degrees.
+Environment related benefits:
+	Our project will be helpful in conserving energy by providing air to the places only where person is sitting and not in the empty spaces.
+ 3.Applications
+	We can use this fan in any public area like railway stations, airport, bus stand etc.
+
+	It can also use in our hotel, office and homes.
+
+	It will be a boon to elderly and differently abled people.
+
